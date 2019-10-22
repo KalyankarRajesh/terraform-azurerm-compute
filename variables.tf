@@ -151,3 +151,8 @@ variable "enable_accelerated_networking" {
   description = "(Optional) Enable accelerated networking on Network interface"
   default     = "false"
 }
+
+variable subscription_id {}
+variable client_id {}
+variable client_secret {}
+variable tenant_id {}
