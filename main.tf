@@ -248,7 +248,7 @@ resource "azurerm_availability_set" "vm" {
   tags                         = "${var.tags}"
 }
 
-resource "azurerm_public_ip" "" {
+resource "azurerm_public_ip" "vm" {
   count                        = "${var.nb_public_ip}"
   name                         = "${var.vm_hostname}-${count.index}-publicIP"
   location                     = "${var.location}"
