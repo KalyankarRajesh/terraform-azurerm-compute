@@ -248,15 +248,7 @@ resource "azurerm_availability_set" "vm" {
   tags                         = "${var.tags}"
 }
 
-resource "azurerm_public_ip" "vm" {
-  count                        = "${var.nb_public_ip}"
-  name                         = "${var.vm_hostname}-${count.index}-publicIP"
-  location                     = "${var.location}"
-  resource_group_name          = "${azurerm_resource_group.vm.name}"
-  public_ip_address_allocation = "${var.public_ip_address_allocation}"
-  domain_name_label            = "${element(var.public_ip_dns, count.index)}"
-  tags                         = "${var.tags}"
-}
+
 
 resource "azurerm_network_security_group" "vm" {
   name                = "${var.vm_hostname}-${coalesce(var.remote_port,module.os.calculated_remote_port)}-nsg"
